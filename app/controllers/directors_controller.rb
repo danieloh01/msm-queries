@@ -9,4 +9,13 @@ class DirectorsController < ApplicationController
     @the_director = matching_records.at(0)
     render({ :template => "director_templates/details"})
   end
+
+  def junior
+    render({ :template => "director_templates/junior"})
+  end
+
+  def senior
+    render({ :template => "director_templates/senior"})
+  end
+
 end

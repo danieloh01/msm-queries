@@ -1,0 +1,13 @@
+<% youngest_director = Director.where.not({ :dob => nil }).order({ :dob => :asc }) %>
+
+
+<%# youngest_director.each do |young| %>
+  <%#= young.name %>
+<%# end %>
+<h1>Youngest director</h1>
+
+<% youngest_director.each do |young| %>
+  <% if young == youngest_director.last %>
+    The youngest director in our dataset right now is <a href="/directors/<%= young.id %>"><%= young.name %></a>, born on <%=young.dob.strftime("%B %d, %Y")%>
+  <% end %>
+<% end %>

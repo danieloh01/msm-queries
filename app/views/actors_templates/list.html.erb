@@ -1,29 +1,24 @@
-<h1>List of all actors</h1>
+<h1>List of actors</h1>
 
 <table border="1">
   <tr>
     <th>ID</th>
     <th>Image</th>
-    <th>Title</th>
-    <th>Year</th>
-    <th>Director</th>
-    <th></th>
+    <th>Name</th>
+    <th>DOB</th>
+    <th>ID</th>
+  </tr>
 
 
-
-<% Movie.all.each do |a_movie| %>
+<% Actor.all.each do |a_actor| %>
   <tr>
-    <td><%= a_movie.id %></td>
-    <td><img src="<%= a_movie.image %>" width="100"></td>
-    <td><%= a_movie.year %></td>
-    <td><%= a_movie.title %></td>
-    <td>
-      <% matching_records = Director.where({ :id => a_movie.director_id})%>
-      <% the_director = matching_records.at(0) %>
-
-      <%= the_director.name %>
-    </td>
-    <td><a href="/movies/<%= a_movie.id %>">Show details</td>
+    <td><%= a_actor.id %></td>
+    <td><img src="<%= a_actor.image %>" width="100"></td>
+    <td><%= a_actor.name %></td>
+    <td><%= a_actor.dob %></td>
+    <td><a href="/actors/<%= a_actor.id%>">Show details</a></td>
+  </tr>
 <% end %>
 
+  
 </table>
